@@ -50,29 +50,28 @@ int TBitField::GetLength(void) const // получить длину (к-во б�
 
 void TBitField::SetBit(const int n) // установить бит
 {
-	/*
-	if ((n > -1) && (n < BitLen))
+	if (n<0) throw "Error";
+	if (n<BitLen) throw "Error";
 		pMem[GetMemIndex(n)] |= GetMemMask(n); 
-		*/
+	
 }
 
 void TBitField::ClrBit(const int n) // очистить бит
 {
-	/*
-	if ((n> -1) && (n<BitLen))
+	
+	if (n < 0) throw "Error";
+	if (n > BitLen) throw "Error";
 		pMem[GetMemIndex(n)] &= ~GetMemMask(n); 
-*/
+
 }
 
 int TBitField::GetBit(const int n) const // получить значение бита
 {
 
-	/*
-	if ((n> -1) && (n<BitLen))
-		return (((pMem[GetMemIndex(n)] & GetMemMask(n)) != 0)
-			? 1 : 0);
-    */
-	return 0;
+	
+	if (n < 0) throw "Error";
+	if (n > BitLen) throw "Error";
+		return (((pMem[GetMemIndex(n)] & GetMemMask(n))));
 }
 
 // битовые операции
