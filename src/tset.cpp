@@ -72,19 +72,27 @@ int TSet::operator!=(const TSet &s) const // сравнение
 
 TSet TSet::operator+(const TSet &s) // объединение
 {
-	//TSet temp(BitField | s.BitField);
-	return 0;
+	TSet temp(BitField | s.BitField);
+	return temp;
 }
 
 TSet TSet::operator+(const int Elem) // объединение с элементом
 {
-	return 0;
+	if (Elem > BitField.GetLength())
+	{
+		throw 'E>L';
+	}
+	TSet temp(BitField);
+	temp.InsElem(Elem);
+	return temp;
 }
 
 TSet TSet::operator-(const int Elem) // разность с элементом
 {
 
-	return 0;
+	TSet temp(MaxPower);
+	temp.DelElem(Elem);
+	return temp;
 }
 
 TSet TSet::operator*(const TSet &s) // пересечение
